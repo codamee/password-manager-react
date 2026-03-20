@@ -22,7 +22,7 @@ const Manager = () => {
             <p className='absolute right-4 bottom-2'>👁️</p>
           </div>
         </div>
-        <input className='px-4 py-2 cursor-pointer w-1/6 mx-auto  bg-blue-900 hover:bg-slate-500 font-bold border-0  rounded-sm' type="submit" />
+        <input className='px-4 py-2 cursor-pointer w-1/6 mx-auto  bg-blue-900 hover:bg-blue-800 font-bold border-0  rounded-sm' type="submit" />
       </form>
       <div className="passwordContainer flex flex-col w-full gap-3 p-4 ">
         <p className='font-bold text-xl text-slate-200'>Your Passwords</p>
