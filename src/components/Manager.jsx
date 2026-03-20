@@ -24,21 +24,30 @@ const Manager = () => {
         </div>
         <input className='px-4 py-2 cursor-pointer w-1/6 mx-auto border bg-blue-200 text-black  rounded-sm' type="submit" />
       </form>
-      <div className="passwordContainer bg-amber-400">
-        <p>Your Passwords</p>
-        <div className="head flex">
-          <p>Site</p>
-          <p>Username</p>
-          <p>Password</p>
+      <div className="passwordContainer flex flex-col w-full gap-3 p-4 overflow-auto">
+        <p className='font-bold text-xl '>Your Passwords</p>
+        <div className="head flex justify-around px-2 py-1 bg-amber-400 rounded-sm">
+          <p className='w-1/3'>Site</p>
+          <p className='w-1/4 '>Username</p>
+          <p className='w-1/6'>Username</p>
           <p>Actions</p>
         </div>
-        <div>
-          {/* <div className="one flex">
-            <p>www.yuturbe.come</p>
-            <p>Username</p>
-            <p>Password</p>
+        <div className='flex flex-col gap-4'>
+          <div className="one flex justify-around px-2 py-1 bg-amber-400 rounded-sm">
+            <p className='w-1/3'>www.alsjdfl.alsjdfl.comm</p>
+            <p className='w-1/4 '>Username</p>
+            <p className='w-1/6'>lkasdjflajs;dlf</p>
+            <div className='flex gap-2'>
+              <p>del</p>
+              <p>edit</p>
+            </div>
+          </div>
+          <div className="one flex justify-around px-2 py-1 bg-amber-400 rounded-sm">
+            <p className='w-1/3'>Site</p>
+            <p className='w-1/4 '>Username</p>
+            <p className='w-1/6'>Username</p>
             <p>Actions</p>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
