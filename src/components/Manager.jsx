@@ -12,7 +12,7 @@ const Manager = () => {
     console.log(data);
   }
   return (
-    <div className='text-white min-h-[85%]  w-[70%] mx-auto flex flex-col items-center'>
+    <div className='text-white min-h-[85%] w-[70%] mx-auto flex flex-col items-center'>
       <form className=' w-full flex flex-col p-4 gap-4' onSubmit={handleSubmit(onSubmit)}>
         <input type='text' placeholder='Enter site url' {...register("url")} className=' w-full bg-slate-800 px-4 py-2 rounded-sm' autoFocus />
         <div className='flex justify-between items-center gap-2'>
