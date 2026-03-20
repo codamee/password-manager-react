@@ -2,12 +2,12 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-      <div className='bg-purple-950 text-purple-50 p-4 flex justify-between items-center'>
-          <div className="logo md:text-xl font-bold text-green-500">Pass/<span className=' text-purple-300 font-bold '>mngr</span></div>
-          <ul className='flex md:gap-6 gap-4 text-[.8rem] md:text-lg text-purple-300'>
-              <li className='cursor-pointer font-semibold'>Home</li>
-              <li className='cursor-pointer font-semibold'>Contact</li>
-              <li className='cursor-pointer font-semibold'>AboutUs</li>
+      <div className='px-3 py-2 md:py-4 md:px-10 flex justify-between items-center  '>
+          <div className="logo md:text-xl font-bold text-green-500">&lt;Pass <span className=' text-blue-500'>mngr/&gt;</span></div>
+          <ul className='flex md:gap-6 gap-4 text-[.8rem] md:text-lg text-slate-500 font-semibold'>
+              <li className='cursor-pointer'>Home</li>
+              <li className='cursor-pointer'>Contact</li>
+              <li className='cursor-pointer'>AboutUs</li>
           </ul>
     </div>
   )

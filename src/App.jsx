@@ -5,7 +5,7 @@ import Manager from './components/Manager'
 
 const App = () => {
   return (
-    <div>
+    <div className='bg-mauve-950 h-screen'>
       <Navbar />
       <Manager />
       <Footer />
