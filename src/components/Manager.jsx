@@ -12,28 +12,28 @@ const Manager = () => {
     console.log(data);
   }
   return (
-    <div className='text-white min-h-[85%] bg-mauve-700 w-[70%] mx-auto flex flex-col items-center'>
+    <div className='text-white min-h-[85%]  w-[70%] mx-auto flex flex-col items-center'>
       <form className=' w-full flex flex-col p-4 gap-4' onSubmit={handleSubmit(onSubmit)}>
-        <input type='text' placeholder='Enter site url' {...register("url")} className=' w-full bg-red-400 px-4 py-2 rounded-sm' autoFocus />
+        <input type='text' placeholder='Enter site url' {...register("url")} className=' w-full bg-slate-800 px-4 py-2 rounded-sm' autoFocus />
         <div className='flex justify-between items-center gap-2'>
-          <input type='text' placeholder='Enter username url' {...register("username")} className=' w-full bg-red-400 px-4 py-2 rounded-sm ' />
+          <input type='text' placeholder='Enter Username' {...register("username")} className=' w-full bg-slate-800 px-4 py-2 rounded-sm ' />
           <div className='w-1/3 flex relative'>
-            <input type='password' placeholder='Enter username url' {...register("password")} className=' w-full bg-red-400 px-4 py-2 rounded-sm ' />
+            <input type='password' placeholder='Enter Password' {...register("password")} className=' w-full bg-slate-800 px-4 py-2 rounded-sm ' />
             <p className='absolute right-4 bottom-2'>👁️</p>
           </div>
         </div>
-        <input className='px-4 py-2 cursor-pointer w-1/6 mx-auto border bg-blue-200 text-black  rounded-sm' type="submit" />
+        <input className='px-4 py-2 cursor-pointer w-1/6 mx-auto  bg-blue-900 hover:bg-slate-500 font-bold border-0  rounded-sm' type="submit" />
       </form>
-      <div className="passwordContainer flex flex-col w-full gap-3 p-4 overflow-auto">
-        <p className='font-bold text-xl '>Your Passwords</p>
-        <div className="head flex justify-around px-2 py-1 bg-amber-400 rounded-sm">
+      <div className="passwordContainer flex flex-col w-full gap-3 p-4 ">
+        <p className='font-bold text-xl text-slate-200'>Your Passwords</p>
+        <div className="head flex justify-around px-4 py-2 bg-blue-900 rounded-sm font-bold">
           <p className='w-1/3'>Site</p>
           <p className='w-1/4 '>Username</p>
-          <p className='w-1/6'>Username</p>
+          <p className='w-1/6'>password</p>
           <p>Actions</p>
         </div>
-        <div className='flex flex-col gap-4'>
-          <div className="one flex justify-around px-2 py-1 bg-amber-400 rounded-sm">
+        <div className='flex flex-col gap-3 overflow-auto h-80'>
+          <div className="one flex justify-around px-4 py-2 bg-slate-800 rounded-sm">
             <p className='w-1/3'>www.alsjdfl.alsjdfl.comm</p>
             <p className='w-1/4 '>Username</p>
             <p className='w-1/6'>lkasdjflajs;dlf</p>
@@ -42,12 +42,9 @@ const Manager = () => {
               <p>edit</p>
             </div>
           </div>
-          <div className="one flex justify-around px-2 py-1 bg-amber-400 rounded-sm">
-            <p className='w-1/3'>Site</p>
-            <p className='w-1/4 '>Username</p>
-            <p className='w-1/6'>Username</p>
-            <p>Actions</p>
-          </div>
+
+  
+
         </div>
       </div>
     </div>
