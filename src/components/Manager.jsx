@@ -4,31 +4,38 @@ import { useForm } from 'react-hook-form'
 
 const Manager = () => {
   const [passwords, setPasswords] = useState([])
-  const copyRef = useRef()
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   const {
     register,
     handleSubmit,
+    setValue,
     watch,
     formState: { errors, isSubmitting }
   } = useForm()
   const onSubmit = (data) => {
     setPasswords([...passwords, data])
-    console.log(passwords)
   }
   const handleEdit = (index) => {
+    const itemToEdit = passwords[index];
+    setValue("url", itemToEdit.url);
+    setValue("username", itemToEdit.username);
+    setValue("password", itemToEdit.password);
     const newArray = passwords.filter((item, i) => i !== index)
-    console.log(newArray);
     setPasswords(newArray)
   }
   const handleDelete = (index) => {
     const newArray = passwords.filter((item, i) => i !== index)
-    console.log(newArray);
     setPasswords(newArray)
   }
   const handleCopy = (text) => {
     console.log(text);
     navigator.clipboard.writeText(text)
   }
+
   return (
     <div className='text-white min-h-[85%] w-[70%] mx-auto flex flex-col items-center'>
       <form className='w-full flex flex-col p-4 gap-4' onSubmit={handleSubmit(onSubmit)}>
@@ -56,7 +63,7 @@ const Manager = () => {
                 required: "Username is required",
                 minLength: { value: 3, message: "Min length is 3" }
               }
-                
+
               )}
               className='w-full bg-slate-800 px-4 py-2 rounded-sm'
             />
@@ -66,7 +73,7 @@ const Manager = () => {
           <div className='w-1/3 flex flex-col gap-1 relative'>
             <div className="relative">
               <input
-                type='password'
+                type={showPassword ? 'text' : 'password'}
                 placeholder='Enter Password'
                 {...register("password", {
                   required: "Password is required",
@@ -74,7 +81,15 @@ const Manager = () => {
                 })}
                 className='w-full bg-slate-800 px-4 py-2 rounded-sm'
               />
-              <p className='absolute right-4 bottom-2'>🔥</p>
+              <p onClick={togglePasswordVisibility} className='absolute right-2 bottom-1'>
+                <lord-icon
+                  src="https://cdn.lordicon.com/dicvhxpz.json"
+                  trigger="hover"
+                  stroke="bold"
+                  colors="primary:#ffffff,secondary:#ffffff"
+                  style={{ "width": "25px", "height": "25px", "cursor": "pointer" }}>
+                </lord-icon>
+              </p>
             </div>
             {errors.password && <span className='text-red-500 text-xs px-1'>{errors.password.message}</span>}
           </div>
