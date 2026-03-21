@@ -31,18 +31,58 @@ const Manager = () => {
   }
   return (
     <div className='text-white min-h-[85%] w-[70%] mx-auto flex flex-col items-center'>
-      <form className=' w-full flex flex-col p-4 gap-4' onSubmit={handleSubmit(onSubmit)}>
-        <input type='text' placeholder='Enter site url' {...register("url")} className=' w-full bg-slate-800 px-4 py-2 rounded-sm' autoFocus />
-        <div className='flex justify-between items-center gap-2'>
-          <input type='text' placeholder='Enter Username' {...register("username")} className=' w-full bg-slate-800 px-4 py-2 rounded-sm ' />
-          <div className='w-1/3 flex relative'>
-            <input type='password' placeholder='Enter Password' {...register("password")} className=' w-full bg-slate-800 px-4 py-2 rounded-sm ' />
-            <p className='absolute right-4 bottom-2'>🔥</p>
+      <form className='w-full flex flex-col p-4 gap-4' onSubmit={handleSubmit(onSubmit)}>
+        <div className="flex flex-col gap-1">
+          <input
+            type='text'
+            placeholder='Enter site url'
+            {...register("url", {
+              required: "URL is required",
+              minLength: { value: 3, message: "Min length is 3" },
+              maxLength: { value: 50, message: "Max length is 50" }
+            })}
+            className='w-full bg-slate-800 px-4 py-2 rounded-sm'
+            autoFocus
+          />
+          {errors.url && <span className='text-red-500 text-xs px-1'>{errors.url.message}</span>}
+        </div>
+
+        <div className='flex justify-between items-start gap-2'>
+          <div className="flex flex-col gap-1 w-full">
+            <input
+              type='text'
+              placeholder='Enter Username'
+              {...register("username", {
+                required: "Username is required",
+                minLength: { value: 3, message: "Min length is 3" }
+              }
+                
+              )}
+              className='w-full bg-slate-800 px-4 py-2 rounded-sm'
+            />
+            {errors.username && <span className='text-red-500 text-xs px-1'>{errors.username.message}</span>}
+          </div>
+
+          <div className='w-1/3 flex flex-col gap-1 relative'>
+            <div className="relative">
+              <input
+                type='password'
+                placeholder='Enter Password'
+                {...register("password", {
+                  required: "Password is required",
+                  minLength: { value: 6, message: "Min 6 chars" }
+                })}
+                className='w-full bg-slate-800 px-4 py-2 rounded-sm'
+              />
+              <p className='absolute right-4 bottom-2'>🔥</p>
+            </div>
+            {errors.password && <span className='text-red-500 text-xs px-1'>{errors.password.message}</span>}
           </div>
         </div>
-        <button type='submit' className='w-1/10 mx-auto flex items-center justify-center gap-2 px-4 py-2  cursor-pointer bg-blue-900 hover:bg-blue-800  text-xl font-semibold border-0  rounded-sm'>
+
+        <button type='submit' className='w-1/10 mx-auto flex items-center justify-center gap-2 px-4 py-2 cursor-pointer bg-blue-900 hover:bg-blue-800 text-xl font-semibold border-0 rounded-sm'>
           <lord-icon
-            style={{ "width": "20px", "height": "20px", "cursor": "pointer", "color": "white" }}
+            style={{ "width": "20px", "height": "20px", "cursor": "pointer" }}
             src="https://cdn.lordicon.com/jgnvfzqg.json"
             trigger="hover"
             colors="primary:#ffffff">
@@ -52,13 +92,15 @@ const Manager = () => {
       </form>
       <div className="passwordContainer flex flex-col w-full gap-3 p-4 ">
         <p className='font-bold text-xl text-slate-200'>Your Passwords</p>
-        <div className="head flex justify-around px-4 py-2 bg-blue-900 rounded-sm font-bold">
-          <p className='w-1/3'>Site</p>
-          <p className='w-1/4 '>Username</p>
-          <p className='w-1/6'>password</p>
-          <p>Actions</p>
-        </div>
         <div className='flex flex-col gap-3 overflow-auto h-80'>
+          {passwords.length === 0 ? <div className='text-center font-semibold m-4'>No passwords to show🤷‍♀️</div> :
+            <div className="head flex justify-around px-4 py-2 bg-blue-900 rounded-sm font-bold">
+              <p className='w-1/3'>Site</p>
+              <p className='w-1/4 '>Username</p>
+              <p className='w-1/6'>password</p>
+              <p>Actions</p>
+            </div>
+          }
           {passwords.map((item, index) => {
             return <div key={index} className="one flex justify-around items-center px-4 py-2 bg-slate-800 rounded-sm">
               <div className='w-1/3 flex gap-2 items-center '>
