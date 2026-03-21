@@ -1,9 +1,10 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 
 const Manager = () => {
   const [passwords, setPasswords] = useState([])
+  const copyRef = useRef()
   const {
     register,
     handleSubmit,
@@ -13,6 +14,16 @@ const Manager = () => {
   const onSubmit = (data) => {
     setPasswords([...passwords, data])
     console.log(passwords)
+  }
+  const handleEdit = (e) => {
+    console.log("edit");
+  }
+  const handleDelete = (e) => {
+    console.log("Delete");
+  }
+  const handleCopy = (text) => {
+    console.log(text);
+    navigator.clipboard.writeText(text)
   }
   return (
     <div className='text-white min-h-[85%] w-[70%] mx-auto flex flex-col items-center'>
@@ -44,55 +55,63 @@ const Manager = () => {
           <p>Actions</p>
         </div>
         <div className='flex flex-col gap-3 overflow-auto h-80'>
-          {passwords.map((item) => {
-            return <div className="one flex justify-around px-4 py-2 bg-slate-800 rounded-sm">
-            <div className='w-1/3 flex gap-2'>
-                <p>{ item.url}</p>
-              <lord-icon
-                style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
-                src="https://cdn.lordicon.com/iykgtsbt.json"
-                trigger="hover"
-                colors="primary:#ffffff">
-              </lord-icon>
+          {passwords.map((item, index) => {
+            return <div key={index} className="one flex justify-around px-4 py-2 bg-slate-800 rounded-sm">
+              <div className='w-1/3 flex gap-2'>
+                <p>{item.url}</p>
+                <div onClick={() => handleCopy(item.url)}>
+                  <lord-icon
+                    style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
+                    src="https://cdn.lordicon.com/iykgtsbt.json"
+                    trigger="hover"
+                    colors="primary:#ffffff">
+                  </lord-icon>
+                </div>
+              </div>
+              <div className='w-1/4 flex gap-2 '>
+                <p >{item.username}</p>
+                <div onClick={() => handleCopy(item.username)}>
+                  <lord-icon
+                    style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
+                    src="https://cdn.lordicon.com/iykgtsbt.json"
+                    trigger="hover"
+                    colors="primary:#ffffff">
+                  </lord-icon>
+                </div>
+              </div>
+              <div className='w-1/6 flex gap-2'>
+                <p >{"*".repeat(item.password.length)}</p>
+                <div onClick={() => handleCopy(item.password)}>
+                  <lord-icon
+                    style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
+                    src="https://cdn.lordicon.com/iykgtsbt.json"
+                    trigger="hover"
+                    colors="primary:#ffffff">
+                  </lord-icon>
+                </div>
+
+              </div>
+              <div className='flex gap-2'>
+                <p onClick={handleEdit}>
+                  <lord-icon
+                    src="https://cdn.lordicon.com/gwlusjdu.json"
+                    trigger="hover"
+                    colors="primary:#ffffff"
+                    style={{ "width": "25px", "height": "25px", "cursor": "pointer" }}>
+                  </lord-icon>
+                </p>
+                <p onClick={handleDelete}>
+                  <lord-icon
+                    src="https://cdn.lordicon.com/skkahier.json"
+                    trigger="hover"
+                    colors="primary:#ffffff"
+                    style={{ "width": "25px", "height": "25px", "cursor": "pointer" }}>
+                  </lord-icon>
+                </p>
+              </div>
             </div>
-            <div className='w-1/4 flex gap-2 '>
-                <p>{item.username}</p>
-              <lord-icon
-                style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
-                src="https://cdn.lordicon.com/iykgtsbt.json"
-                trigger="hover"
-                colors="primary:#ffffff">
-              </lord-icon></div>
-            <div className='w-1/6 flex gap-2'>
-                <p>{item.password}</p>
-              <lord-icon
-                style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
-                src="https://cdn.lordicon.com/iykgtsbt.json"
-                trigger="hover"
-                colors="primary:#ffffff">
-              </lord-icon>
-            </div>
-            <div className='flex gap-2'>
-              <p>
-                <lord-icon
-                  src="https://cdn.lordicon.com/gwlusjdu.json"
-                  trigger="hover"
-                  colors="primary:#ffffff"
-                  style={{ "width": "25px", "height": "25px", "cursor": "pointer" }}>
-                </lord-icon>
-              </p>
-              <p>
-                <lord-icon
-                  src="https://cdn.lordicon.com/skkahier.json"
-                  trigger="hover"
-                  colors="primary:#ffffff"
-                  style={{ "width": "25px", "height": "25px", "cursor": "pointer" }}>
-                </lord-icon>
-              </p>
-            </div>
-          </div>
           })}
-          
+
         </div>
       </div>
     </div>
