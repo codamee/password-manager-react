@@ -60,8 +60,8 @@ const Manager = () => {
         </div>
         <div className='flex flex-col gap-3 overflow-auto h-80'>
           {passwords.map((item, index) => {
-            return <div key={index} className="one flex justify-around px-4 py-2 bg-slate-800 rounded-sm">
-              <div className='w-1/3 flex gap-2'>
+            return <div key={index} className="one flex justify-around items-center px-4 py-2 bg-slate-800 rounded-sm">
+              <div className='w-1/3 flex gap-2 items-center '>
                 <p>{item.url}</p>
                 <div onClick={() => handleCopy(item.url)}>
                   <lord-icon
@@ -72,7 +72,7 @@ const Manager = () => {
                   </lord-icon>
                 </div>
               </div>
-              <div className='w-1/4 flex gap-2 '>
+              <div className='w-1/4 flex gap-2 items-center '>
                 <p >{item.username}</p>
                 <div onClick={() => handleCopy(item.username)}>
                   <lord-icon
@@ -83,7 +83,7 @@ const Manager = () => {
                   </lord-icon>
                 </div>
               </div>
-              <div className='w-1/6 flex gap-2'>
+              <div className='w-1/6 flex gap-2 items-center '>
                 <p >{"*".repeat(item.password.length)}</p>
                 <div onClick={() => handleCopy(item.password)}>
                   <lord-icon
@@ -95,7 +95,7 @@ const Manager = () => {
                 </div>
 
               </div>
-              <div className='flex gap-2'>
+              <div className='flex gap-2 items-center'>
                 <p onClick={() => { handleEdit(index) }}>
                   <lord-icon
                     src="https://cdn.lordicon.com/gwlusjdu.json"
