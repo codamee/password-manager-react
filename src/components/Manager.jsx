@@ -42,7 +42,7 @@ const Manager = () => {
         </div>
         <button type='submit' className='w-1/10 mx-auto flex items-center justify-center gap-2 px-4 py-2  cursor-pointer bg-blue-900 hover:bg-blue-800  text-xl font-semibold border-0  rounded-sm'>
           <lord-icon
-            style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
+            style={{ "width": "20px", "height": "20px", "cursor": "pointer", "color": "white" }}
             src="https://cdn.lordicon.com/jgnvfzqg.json"
             trigger="hover"
             colors="primary:#ffffff">
@@ -65,7 +65,7 @@ const Manager = () => {
                 <p>{item.url}</p>
                 <div onClick={() => handleCopy(item.url)}>
                   <lord-icon
-                    style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
+                    style={{ "width": "20px", "height": "20px", "cursor": "pointer", "color": "white" }}
                     src="https://cdn.lordicon.com/iykgtsbt.json"
                     trigger="hover"
                     colors="primary:#ffffff">
@@ -76,18 +76,18 @@ const Manager = () => {
                 <p >{item.username}</p>
                 <div onClick={() => handleCopy(item.username)}>
                   <lord-icon
-                    style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
+                    style={{ "width": "20px", "height": "20px", "cursor": "pointer", "color": "white" }}
                     src="https://cdn.lordicon.com/iykgtsbt.json"
                     trigger="hover"
                     colors="primary:#ffffff">
                   </lord-icon>
                 </div>
               </div>
-              <div className='w-1/6 flex gap-2 items-center '>
+              <div className='w-1/6 flex gap-2 items-center'>
                 <p >{"*".repeat(item.password.length)}</p>
                 <div onClick={() => handleCopy(item.password)}>
                   <lord-icon
-                    style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
+                    style={{ "width": "20px", "height": "20px", "cursor": "pointer", "color": "white" }}
                     src="https://cdn.lordicon.com/iykgtsbt.json"
                     trigger="hover"
                     colors="primary:#ffffff">
@@ -101,7 +101,7 @@ const Manager = () => {
                     src="https://cdn.lordicon.com/gwlusjdu.json"
                     trigger="hover"
                     colors="primary:#ffffff"
-                    style={{ "width": "25px", "height": "25px", "cursor": "pointer" }}>
+                    style={{ "width": "20px", "height": "20px", "cursor": "pointer" }}>
                   </lord-icon>
                 </p>
                 <p onClick={() => { handleDelete(index) }}>
@@ -109,7 +109,7 @@ const Manager = () => {
                     src="https://cdn.lordicon.com/skkahier.json"
                     trigger="hover"
                     colors="primary:#ffffff"
-                    style={{ "width": "25px", "height": "25px", "cursor": "pointer" }}>
+                    style={{ "width": "20px", "height": "20px", "cursor": "pointer" }}>
                   </lord-icon>
                 </p>
               </div>
