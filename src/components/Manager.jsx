@@ -19,10 +19,18 @@ const Manager = () => {
           <input type='text' placeholder='Enter Username' {...register("username")} className=' w-full bg-slate-800 px-4 py-2 rounded-sm ' />
           <div className='w-1/3 flex relative'>
             <input type='password' placeholder='Enter Password' {...register("password")} className=' w-full bg-slate-800 px-4 py-2 rounded-sm ' />
-            <p className='absolute right-4 bottom-2'>👁️</p>
+            <p className='absolute right-4 bottom-2'>🔥</p>
           </div>
         </div>
-        <input className='px-4 py-2 cursor-pointer w-1/6 mx-auto  bg-blue-900 hover:bg-blue-800 font-bold border-0  rounded-sm' type="submit" />
+        <button type='submit' className='w-1/10 mx-auto flex items-center justify-center gap-2 px-4 py-2  cursor-pointer bg-blue-900 hover:bg-blue-800  text-xl font-semibold border-0  rounded-sm'>
+          <lord-icon 
+            style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
+            src="https://cdn.lordicon.com/jgnvfzqg.json"
+            trigger="hover"
+            colors="primary:#ffffff">
+          </lord-icon>
+          <p>Save</p>
+        </button>
       </form>
       <div className="passwordContainer flex flex-col w-full gap-3 p-4 ">
         <p className='font-bold text-xl text-slate-200'>Your Passwords</p>
@@ -34,16 +42,53 @@ const Manager = () => {
         </div>
         <div className='flex flex-col gap-3 overflow-auto h-80'>
           <div className="one flex justify-around px-4 py-2 bg-slate-800 rounded-sm">
-            <p className='w-1/3'>www.alsjdfl.alsjdfl.comm</p>
-            <p className='w-1/4 '>Username</p>
-            <p className='w-1/6'>lkasdjflajs;dlf</p>
+            <div className='w-1/3 flex gap-2'>
+              <p>www.youtube.com</p>
+              <lord-icon
+                style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
+                src="https://cdn.lordicon.com/iykgtsbt.json"
+                trigger="hover"
+                colors="primary:#ffffff">
+              </lord-icon>
+            </div>
+            <div className='w-1/4 flex gap-2 '>
+              <p>Johny</p>
+              <lord-icon
+                style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
+                src="https://cdn.lordicon.com/iykgtsbt.json"
+                trigger="hover"
+                colors="primary:#ffffff">
+              </lord-icon></div>
+            <div className='w-1/6 flex gap-2'>
+              <p>12312434</p>
+              <lord-icon
+                style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
+                src="https://cdn.lordicon.com/iykgtsbt.json"
+                trigger="hover"
+                colors="primary:#ffffff">
+              </lord-icon>
+            </div>
             <div className='flex gap-2'>
-              <p>del</p>
-              <p>edit</p>
+              <p>
+                <lord-icon
+                  src="https://cdn.lordicon.com/gwlusjdu.json"
+                  trigger="hover"
+                  colors="primary:#ffffff"
+                  style={{ "width": "25px", "height": "25px", "cursor": "pointer" }}>
+                </lord-icon>
+              </p>
+              <p>
+                <lord-icon
+                  src="https://cdn.lordicon.com/skkahier.json"
+                  trigger="hover"
+                  colors="primary:#ffffff"
+                  style={{ "width": "25px", "height": "25px", "cursor": "pointer" }}>
+                </lord-icon>
+              </p>
             </div>
           </div>
 
-  
+
 
         </div>
       </div>
