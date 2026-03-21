@@ -15,11 +15,15 @@ const Manager = () => {
     setPasswords([...passwords, data])
     console.log(passwords)
   }
-  const handleEdit = (e) => {
-    console.log("edit");
+  const handleEdit = (index) => {
+    const newArray = passwords.filter((item, i) => i !== index)
+    console.log(newArray);
+    setPasswords(newArray)
   }
-  const handleDelete = (e) => {
-    console.log("Delete");
+  const handleDelete = (index) => {
+    const newArray = passwords.filter((item, i) => i !== index)
+    console.log(newArray);
+    setPasswords(newArray)
   }
   const handleCopy = (text) => {
     console.log(text);
@@ -92,7 +96,7 @@ const Manager = () => {
 
               </div>
               <div className='flex gap-2'>
-                <p onClick={handleEdit}>
+                <p onClick={() => { handleEdit(index) }}>
                   <lord-icon
                     src="https://cdn.lordicon.com/gwlusjdu.json"
                     trigger="hover"
@@ -100,7 +104,7 @@ const Manager = () => {
                     style={{ "width": "25px", "height": "25px", "cursor": "pointer" }}>
                   </lord-icon>
                 </p>
-                <p onClick={handleDelete}>
+                <p onClick={() => { handleDelete(index) }}>
                   <lord-icon
                     src="https://cdn.lordicon.com/skkahier.json"
                     trigger="hover"
