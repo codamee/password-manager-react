@@ -44,9 +44,10 @@ const Manager = () => {
           <p>Actions</p>
         </div>
         <div className='flex flex-col gap-3 overflow-auto h-80'>
-          <div className="one flex justify-around px-4 py-2 bg-slate-800 rounded-sm">
+          {passwords.map((item) => {
+            return <div className="one flex justify-around px-4 py-2 bg-slate-800 rounded-sm">
             <div className='w-1/3 flex gap-2'>
-              <p>www.youtube.com</p>
+                <p>{ item.url}</p>
               <lord-icon
                 style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
                 src="https://cdn.lordicon.com/iykgtsbt.json"
@@ -55,7 +56,7 @@ const Manager = () => {
               </lord-icon>
             </div>
             <div className='w-1/4 flex gap-2 '>
-              <p>Johny</p>
+                <p>{item.username}</p>
               <lord-icon
                 style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
                 src="https://cdn.lordicon.com/iykgtsbt.json"
@@ -63,7 +64,7 @@ const Manager = () => {
                 colors="primary:#ffffff">
               </lord-icon></div>
             <div className='w-1/6 flex gap-2'>
-              <p>12312434</p>
+                <p>{item.password}</p>
               <lord-icon
                 style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
                 src="https://cdn.lordicon.com/iykgtsbt.json"
@@ -90,6 +91,8 @@ const Manager = () => {
               </p>
             </div>
           </div>
+          })}
+          
         </div>
       </div>
     </div>
