@@ -1,7 +1,9 @@
 import React from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 const Manager = () => {
+  const [passwords, setPasswords] = useState([])
   const {
     register,
     handleSubmit,
@@ -9,7 +11,8 @@ const Manager = () => {
     formState: { errors, isSubmitting }
   } = useForm()
   const onSubmit = (data) => {
-    console.log(data);
+    setPasswords([...passwords, data])
+    console.log(passwords)
   }
   return (
     <div className='text-white min-h-[85%] w-[70%] mx-auto flex flex-col items-center'>
@@ -23,7 +26,7 @@ const Manager = () => {
           </div>
         </div>
         <button type='submit' className='w-1/10 mx-auto flex items-center justify-center gap-2 px-4 py-2  cursor-pointer bg-blue-900 hover:bg-blue-800  text-xl font-semibold border-0  rounded-sm'>
-          <lord-icon 
+          <lord-icon
             style={{ "width": "25px", "height": "25px", "cursor": "pointer", "color": "white" }}
             src="https://cdn.lordicon.com/jgnvfzqg.json"
             trigger="hover"
@@ -87,9 +90,6 @@ const Manager = () => {
               </p>
             </div>
           </div>
-
-
-
         </div>
       </div>
     </div>
