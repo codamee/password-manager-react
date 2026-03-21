@@ -81,13 +81,13 @@ const Manager = () => {
                 })}
                 className='w-full bg-slate-800 px-4 py-2 rounded-sm'
               />
-              <p onClick={togglePasswordVisibility} className='absolute right-2 bottom-1'>
+              <p onClick={togglePasswordVisibility} className='absolute right-2 bottom-2'>
                 <lord-icon
                   src="https://cdn.lordicon.com/dicvhxpz.json"
                   trigger="hover"
                   stroke="bold"
                   colors="primary:#ffffff,secondary:#ffffff"
-                  style={{ "width": "25px", "height": "25px", "cursor": "pointer" }}>
+                  style={{ "width": "25px", "height": "25px", "cursor": "pointer","display":"block" }}>
                 </lord-icon>
               </p>
             </div>
@@ -97,7 +97,7 @@ const Manager = () => {
 
         <button type='submit' className='w-1/10 mx-auto flex items-center justify-center gap-2 px-4 py-2 cursor-pointer bg-blue-900 hover:bg-blue-800 text-xl font-semibold border-0 rounded-sm'>
           <lord-icon
-            style={{ "width": "20px", "height": "20px", "cursor": "pointer" }}
+            style={{ "width": "20px", "height": "20px", "cursor": "pointer","display":"block" }}
             src="https://cdn.lordicon.com/jgnvfzqg.json"
             trigger="hover"
             colors="primary:#ffffff">
@@ -122,7 +122,7 @@ const Manager = () => {
                 <p>{item.url}</p>
                 <div onClick={() => handleCopy(item.url)}>
                   <lord-icon
-                    style={{ "width": "20px", "height": "20px", "cursor": "pointer", "color": "white" }}
+                    style={{ "width": "20px", "height": "20px", "cursor": "pointer","display":"block", "color": "white" }}
                     src="https://cdn.lordicon.com/iykgtsbt.json"
                     trigger="hover"
                     colors="primary:#ffffff">
@@ -133,7 +133,7 @@ const Manager = () => {
                 <p >{item.username}</p>
                 <div onClick={() => handleCopy(item.username)}>
                   <lord-icon
-                    style={{ "width": "20px", "height": "20px", "cursor": "pointer", "color": "white" }}
+                    style={{ "width": "20px", "height": "20px", "cursor": "pointer","display":"block", "color": "white" }}
                     src="https://cdn.lordicon.com/iykgtsbt.json"
                     trigger="hover"
                     colors="primary:#ffffff">
@@ -144,7 +144,7 @@ const Manager = () => {
                 <p >{"*".repeat(item.password.length)}</p>
                 <div onClick={() => handleCopy(item.password)}>
                   <lord-icon
-                    style={{ "width": "20px", "height": "20px", "cursor": "pointer", "color": "white" }}
+                    style={{ "width": "20px", "height": "20px", "cursor": "pointer","display":"block", "color": "white" }}
                     src="https://cdn.lordicon.com/iykgtsbt.json"
                     trigger="hover"
                     colors="primary:#ffffff">
@@ -158,7 +158,7 @@ const Manager = () => {
                     src="https://cdn.lordicon.com/gwlusjdu.json"
                     trigger="hover"
                     colors="primary:#ffffff"
-                    style={{ "width": "20px", "height": "20px", "cursor": "pointer" }}>
+                    style={{ "width": "20px", "height": "20px", "cursor": "pointer","display":"block" }}>
                   </lord-icon>
                 </p>
                 <p onClick={() => { handleDelete(index) }}>
@@ -166,7 +166,7 @@ const Manager = () => {
                     src="https://cdn.lordicon.com/skkahier.json"
                     trigger="hover"
                     colors="primary:#ffffff"
-                    style={{ "width": "20px", "height": "20px", "cursor": "pointer" }}>
+                    style={{ "width": "20px", "height": "20px", "cursor": "pointer","display":"block" }}>
                   </lord-icon>
                 </p>
               </div>

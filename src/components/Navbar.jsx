@@ -12,7 +12,9 @@ const Navbar = () => {
             trigger="hover"
             stroke="bold"
             colors="primary:#ffffff,secondary:#00ff00  "
-            style={{ "width": "40px", "height": "40px", "cursor": "pointer" }}>
+            style={{
+              "width": "30px", "height": "30px", "cursor": "pointer","display":"block"
+             }}>
           </lord-icon></a>
       </div>
 
