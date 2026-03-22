@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -7,9 +7,20 @@ const Manager = () => {
   const [passwords, setPasswords] = useState([])
   const [showPassword, setShowPassword] = useState(false);
 
+  const getData = async (e) => {
+    const req = await fetch("http://localhost:3000/")
+    const passes = await req.json()
+    setPasswords(passes)
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
   const {
     register,
     handleSubmit,
@@ -17,8 +28,10 @@ const Manager = () => {
     watch,
     formState: { errors, isSubmitting }
   } = useForm()
-  const onSubmit = (data) => {
+
+  const onSubmit = async (data) => {
     setPasswords([...passwords, data])
+    const res = await fetch("http://localhost:3000", { method: "POST", headers: { "content-Type": "application/json" }, body: JSON.stringify(data) })
     toast('🦄 Data saved ', {
       position: "top-right",
       autoClose: 5000,
@@ -31,16 +44,18 @@ const Manager = () => {
       // transition: Bounce,
     });
   }
-  const handleEdit = (index) => {
+  const handleEdit = async (id, index) => {
+    const res = await fetch("http://localhost:3000", { method: "DELETE", headers: { "content-Type": "application/json" }, body: JSON.stringify({ id }) })
     const itemToEdit = passwords[index];
     setValue("url", itemToEdit.url);
     setValue("username", itemToEdit.username);
     setValue("password", itemToEdit.password);
-    const newArray = passwords.filter((item, i) => i !== index)
+    const newArray = passwords.filter((item) => id !== item._id)
     setPasswords(newArray)
   }
-  const handleDelete = (index) => {
-    const newArray = passwords.filter((item, i) => i !== index)
+  const handleDelete = async (id) => {
+    const res = await fetch("http://localhost:3000", { method: "DELETE", headers: { "content-Type": "application/json" }, body: JSON.stringify({ id }) })
+    const newArray = passwords.filter((item) => id !== item._id)
     setPasswords(newArray)
     toast('👀 Deleted successfully', {
       position: "top-right",
@@ -82,7 +97,7 @@ const Manager = () => {
         draggable
         pauseOnHover
         theme="dark"
-        // transition={Bounce}
+      // transition={Bounce}
       />
       <div className='text-white min-h-[85%] md:w-[70%] md:mx-auto flex flex-col items-center'>
         <form className='w-full flex flex-col p-4 gap-4' onSubmit={handleSubmit(onSubmit)}>
@@ -164,7 +179,7 @@ const Manager = () => {
               </div>
             }
             {passwords.map((item, index) => {
-              return <div key={index} className="one flex justify-around items-center px-4 py-2 bg-slate-800 rounded-sm text-[12px] md:text-base">
+              return <div key={item._id} className="one flex justify-around items-center px-4 py-2 bg-slate-800 rounded-sm text-[12px] md:text-base">
                 <div className='md:w-1/3 w-1/4 flex gap-2 items-center '>
                   <p>{item.url}</p>
                   <div onClick={() => handleCopy(item.url)}>
@@ -200,7 +215,7 @@ const Manager = () => {
 
                 </div>
                 <div className='flex gap-2 items-center'>
-                  <p onClick={() => { handleEdit(index) }}>
+                  <p onClick={() => { handleEdit(item._id, index) }}>
                     <lord-icon
                       src="https://cdn.lordicon.com/gwlusjdu.json"
                       trigger="hover"
@@ -208,7 +223,7 @@ const Manager = () => {
                       style={{ "width": "20px", "height": "20px", "cursor": "pointer", "display": "block" }}>
                     </lord-icon>
                   </p>
-                  <p onClick={() => { handleDelete(index) }}>
+                  <p onClick={() => { handleDelete(item._id) }}>
                     <lord-icon
                       src="https://cdn.lordicon.com/skkahier.json"
                       trigger="hover"
