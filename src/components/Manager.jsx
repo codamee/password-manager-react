@@ -37,7 +37,7 @@ const Manager = () => {
   }
 
   return (
-    <div className='text-white min-h-[85%] w-[70%] mx-auto flex flex-col items-center'>
+    <div className='text-white min-h-[85%] md:w-[70%] md:mx-auto flex flex-col items-center'>
       <form className='w-full flex flex-col p-4 gap-4' onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-1">
           <input
@@ -54,7 +54,7 @@ const Manager = () => {
           {errors.url && <span className='text-red-500 text-xs px-1'>{errors.url.message}</span>}
         </div>
 
-        <div className='flex justify-between items-start gap-2'>
+        <div className='flex md:flex-row flex-col  justify-between items-start gap-4 '>
           <div className="flex flex-col gap-1 w-full">
             <input
               type='text'
@@ -70,7 +70,7 @@ const Manager = () => {
             {errors.username && <span className='text-red-500 text-xs px-1'>{errors.username.message}</span>}
           </div>
 
-          <div className='w-1/3 flex flex-col gap-1 relative'>
+          <div className='md:w-1/3 w-full flex flex-col gap-1 relative'>
             <div className="relative">
               <input
                 type={showPassword ? 'text' : 'password'}
@@ -95,7 +95,7 @@ const Manager = () => {
           </div>
         </div>
 
-        <button type='submit' className='w-1/10 mx-auto flex items-center justify-center gap-2 px-4 py-2 cursor-pointer bg-blue-900 hover:bg-blue-800 text-xl font-semibold border-0 rounded-sm'>
+        <button type='submit' className='md:w-1/10 w-1/3 mx-auto flex items-center justify-center gap-2 px-4 py-2 cursor-pointer bg-blue-900 hover:bg-blue-800 text-xl font-semibold border-0 rounded-sm'>
           <lord-icon
             style={{ "width": "20px", "height": "20px", "cursor": "pointer","display":"block" }}
             src="https://cdn.lordicon.com/jgnvfzqg.json"
@@ -109,16 +109,16 @@ const Manager = () => {
         <p className='font-bold text-xl text-slate-200'>Your Passwords</p>
         <div className='flex flex-col gap-3 overflow-auto h-80'>
           {passwords.length === 0 ? <div className='text-center font-semibold m-4'>No passwords to show🤷‍♀️</div> :
-            <div className="head flex justify-around px-4 py-2 bg-blue-900 rounded-sm font-bold">
-              <p className='w-1/3'>Site</p>
-              <p className='w-1/4 '>Username</p>
-              <p className='w-1/6'>password</p>
+            <div className="head flex justify-around px-4 py-2 bg-blue-900 rounded-sm font-bold text-[14px] md:text-base">
+              <p className='md:w-1/3 '>Site</p>
+              <p className='md:w-1/5 '>Username</p>
+              <p className='md:w-1/6'>password</p>
               <p>Actions</p>
             </div>
           }
           {passwords.map((item, index) => {
-            return <div key={index} className="one flex justify-around items-center px-4 py-2 bg-slate-800 rounded-sm">
-              <div className='w-1/3 flex gap-2 items-center '>
+            return <div key={index} className="one flex justify-around items-center px-4 py-2 bg-slate-800 rounded-sm text-[12px] md:text-base">
+              <div className='md:w-1/3 w-1/4 flex gap-2 items-center '>
                 <p>{item.url}</p>
                 <div onClick={() => handleCopy(item.url)}>
                   <lord-icon
