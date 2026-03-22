@@ -26,6 +26,7 @@ const Manager = () => {
     handleSubmit,
     setValue,
     watch,
+    reset,
     formState: { errors, isSubmitting }
   } = useForm()
 
@@ -43,6 +44,7 @@ const Manager = () => {
       theme: "dark",
       // transition: Bounce,
     });
+    reset()
   }
   const handleEdit = async (id, index) => {
     const res = await fetch("http://localhost:3000", { method: "DELETE", headers: { "content-Type": "application/json" }, body: JSON.stringify({ id }) })
