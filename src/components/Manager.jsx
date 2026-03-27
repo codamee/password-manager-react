@@ -8,7 +8,7 @@ const Manager = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const getData = async (e) => {
-    const req = await fetch(import.meta.env.VITE_API_URL)
+    const req = await fetch(`${import.meta.env.VITE_API_URL}/`)
     const passes = await req.json()
     setPasswords(passes)
   }
@@ -32,7 +32,7 @@ const Manager = () => {
 
   const onSubmit = async (data) => {
     setPasswords([...passwords, data])
-    const res = await fetch(import.meta.env.VITE_API_URL, { method: "POST", headers: { "content-Type": "application/json" }, body: JSON.stringify(data) })
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/`, { method: "POST", headers: { "content-Type": "application/json" }, body: JSON.stringify(data) })
     toast('🦄 Data saved ', {
       position: "top-right",
       autoClose: 5000,
@@ -47,7 +47,7 @@ const Manager = () => {
     reset()
   }
   const handleEdit = async (id, index) => {
-    const res = await fetch(import.meta.env.VITE_API_URL, { method: "DELETE", headers: { "content-Type": "application/json" }, body: JSON.stringify({ id }) })
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/`, { method: "DELETE", headers: { "content-Type": "application/json" }, body: JSON.stringify({ id }) })
     const itemToEdit = passwords[index];
     setValue("url", itemToEdit.url);
     setValue("username", itemToEdit.username);
@@ -56,7 +56,7 @@ const Manager = () => {
     setPasswords(newArray)
   }
   const handleDelete = async (id) => {
-    const res = await fetch(import.meta.env.VITE_API_URL, { method: "DELETE", headers: { "content-Type": "application/json" }, body: JSON.stringify({ id }) })
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/`, { method: "DELETE", headers: { "content-Type": "application/json" }, body: JSON.stringify({ id }) })
     const newArray = passwords.filter((item) => id !== item._id)
     setPasswords(newArray)
     toast('👀 Deleted successfully', {
