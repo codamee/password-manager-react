@@ -3,8 +3,10 @@
 A secure and responsive password management web application built with the MERN stack (MongoDB, Express, React, Node.js) and styled with Tailwind CSS.
 
 ## 🚀 Live Demo
-**Frontend:** [https://password-manager-react-frontend.onrender.com/]  
-**Backend API:** [https://password-manager-react-api.onrender.com]
+
+* **[Frontend User Interface](https://password-manager-react-frontend.onrender.com/)**
+* **[Backend API Endpoint](https://password-manager-react-api.onrender.com)**
+
 
 ---
 
