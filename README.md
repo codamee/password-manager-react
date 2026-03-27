@@ -7,6 +7,13 @@ A secure and responsive password management web application built with the MERN 
 * **[Frontend User Interface](https://password-manager-react-frontend.onrender.com/)**
 * **[Backend API Endpoint](https://password-manager-react-api.onrender.com)**
 
+---
+
+## 📱 Responsive Previews
+
+| Desktop View | Mobile View |
+| :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/458c2c82-0d8b-4283-bbd3-360e661c4be7" width="500" alt="Desktop Preview" /> | <img src="https://github.com/user-attachments/assets/aaada48b-92cc-4bab-969d-8681c6afd644" width="200" alt="Mobile Preview" /> |
 
 ---
 
